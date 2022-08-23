@@ -4,7 +4,7 @@
 
 * Task summary
 
-  Angular receives monthly deliveries of customer statement records. This information is delivered in two formats, CSV and XML. These records need to be validated. based on below conditions
+  Application receives monthly deliveries of customer statement records. This information is delivered in two formats, CSV and XML. These records need to be validated. based on below conditions
   
      * all transaction references should be unique
      * end balance needs to be validated 
