@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col text-center mb-2">
+      <h1 class="h2">{{ title }}</h1>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <app-data-processor
+        [records]="records"
+        (uploadFileEvent)="uploadListener($event)"
+      ></app-data-processor>
+    </div>
+  </div>
+  <div class="row mt-4 mb-4">
+    <div class="col-md-12">
+      <app-records
+        [records]="records"
+        [duplicateReferenceIDs]="duplicateReferenceIDs"
+        *ngIf="records.length > 0; else noRecords"
+      ></app-records>
+      <ng-template #noRecords>
+        <h5 class="text-center">{{ noRecords_title }}</h5>
+        <p class="text-center">
+          {{ noRecords_subTitle }}
+        </p>
+      </ng-template>
+    </div>
+  </div>
+  <app-modal></app-modal>
+</div>

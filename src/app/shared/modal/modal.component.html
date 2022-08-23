@@ -1,0 +1,14 @@
+<ng-template #msgModal let-modal>
+  <div class="modal-body mt-4 mb-4 text-center">
+    {{ modalContent }}
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-secondary btn-sm"
+      (click)="modal.close('Save click')"
+    >
+      Close
+    </button>
+  </div>
+</ng-template>

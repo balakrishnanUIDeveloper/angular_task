@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-md-12">
+    <ul class="nav nav-tabs nav-fill">
+      <li class="nav-item" *ngFor="let tab of tabs" (click)="selectTab(tab)">
+        <a
+          class="nav-link text-secondary"
+          [class.active]="tab.active"
+          href="javascript:void(0)"
+        >
+          {{ tab.title }}&nbsp;{{ transactionLabel }}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-12 mt-2 table-responsive">
+    <table class="table table-striped">
+      <thead class="thead-dark text-capitalize">
+        <tr>
+          <th scope="col">reference</th>
+          <th scope="col">accountNumber</th>
+          <!-- <th scope="col">startBalance</th> -->
+          <!-- <th scope="col">mutation</th> -->
+          <th scope="col">description</th>
+          <!-- <th scope="col">endBalance</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let record of records; let i = index">
+          <tr
+            *ngIf="checkTransactionStatus(record) === this.showSuccessRecords"
+          >
+            <th
+              scope="row"
+              [ngClass]="{
+                'text-danger': this.duplicateReferenceIDs.includes(
+                  record.reference
+                )
+              }"
+            >
+              {{ record.reference }}
+            </th>
+            <td>{{ record.accountNumber }}</td>
+            <!-- <td>{{ record.startBalance }}</td> -->
+            <!-- <td>{{ record.mutation }}</td> -->
+            <td>{{ record.description }}</td>
+            <!-- <td>{{ record.endBalance }}</td> -->
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>
